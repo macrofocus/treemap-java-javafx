@@ -44,3 +44,16 @@ dependencies {
 application {
     mainClass.set("Demo")
 }
+
+distributions {
+    main {
+//        distributionBaseName.set("someName")
+        contents {
+//            from("TreeMap API for Java-JavaFX Developer Guide.pdf")
+
+            from("../treemap/build/dokka/html/") {
+                into("dokka")
+            }
+        }
+    }
+}
