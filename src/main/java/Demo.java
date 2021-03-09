@@ -50,6 +50,7 @@ public class Demo extends Application {
 
         StackPane root = new StackPane();
         root.getChildren().add(treeMap.getComponent().getNativeComponent());
+        primaryStage.setTitle("TreeMap");
         primaryStage.setScene(new Scene(root, 1024.0, 768.0));
         primaryStage.show();
     }
