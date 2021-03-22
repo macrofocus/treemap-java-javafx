@@ -14,6 +14,8 @@ import org.mkui.palette.PaletteFactory;
 import org.molap.dataframe.DataFrame;
 import org.molap.dataframe.JsonDataFrame;
 
+import java.util.Arrays;
+
 public class Demo extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -25,13 +27,13 @@ public class Demo extends Application {
         TreeMapSettings<String> settings = model.getSettings();
 
         // Group by
-        settings.setGroupByByNames("Sector", "Industry");
+        settings.setGroupByColumns(Arrays.asList("Sector", "Industry"));
 
         // Size
-        settings.setSizeByName("Market Value");
+        settings.setSizeColumn("Market Value");
 
         // Color
-        settings.setColorByName("Profits");
+        settings.setColorColumn("Profits");
 //        TreeMapField<String> profits = model.getTreeMapField("Profits");
         TreeMapColumnSettings profitsSettings = settings.getColumnSettings("Profits");
         final FixedPalette negpos = new PaletteFactory().get("negpos").getPalette();
