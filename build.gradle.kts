@@ -49,6 +49,11 @@ distributions {
     main {
 //        distributionBaseName.set("someName")
         contents {
+            from(".") {
+                exclude("build/**")
+                exclude("yarn.lock")
+            }
+
 //            from("TreeMap API for Java-JavaFX Developer Guide.pdf")
 
             from("../treemap/build/dokka/html/") {
