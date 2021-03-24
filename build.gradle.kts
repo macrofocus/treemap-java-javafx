@@ -14,8 +14,9 @@ repositories {
 }
 
 javafx {
-    version = "12"
-    modules("javafx.graphics")
+    val javaFxVersion: String by project
+    version = javaFxVersion
+    modules("javafx.graphics", "javafx.controls")
 }
 
 val frameworkAttribute = Attribute.of("mkui", String::class.java)
@@ -27,12 +28,6 @@ configurations.all {
 dependencies {
     val kotlinVersion: String by project
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-
-    val javaFxVersion: String by project
-    val osName = System.getProperty("os.name").toLowerCase()
-    val openjfxPlatform = if(osName.contains("mac")) "mac" else if(osName.contains("win")) "win" else if(osName.contains("linux")) "linux" else null
-    implementation("org.openjfx:javafx-base:$javaFxVersion:$openjfxPlatform")
-    implementation("org.openjfx:javafx-graphics:$javaFxVersion:$openjfxPlatform")
 
     val macrofocusVersion: String by project
     implementation("org.macrofocus:macrofocus-common:$macrofocusVersion")
