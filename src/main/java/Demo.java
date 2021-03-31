@@ -13,7 +13,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 import org.mkui.colormap.MutableColorMap;
-import org.mkui.font.CPFont;
+import org.mkui.font.crossplatform.CPFont;
 import org.mkui.javafx.HorizontalHierarchicalComboBox;
 import org.mkui.javafx.VerticalHierarchicalComboBox;
 import org.mkui.javafx.Orientation;
@@ -56,7 +56,7 @@ public class Demo extends Application {
 
         // Label
         TreeMapColumnSettings companySettings = settings.getColumnSettings("Company");
-        companySettings.setLabelingFont(new CPFont(new Font("Helvetica", 9.0), FontWeight.NORMAL, FontPosture.REGULAR)); // 9 points is the minimum size that will be displayed
+        companySettings.setLabelingFont(new CPFont(new Font("Helvetica", 9.0), FontWeight.NORMAL, FontPosture.REGULAR).getNativeFont()); // 9 points is the minimum size that will be displayed
         companySettings.setLabelingMinimumCharactersToDisplay(5);
         companySettings.setLabelingResizeTextToFitShape(true);
         companySettings.setLabelingVerticalAlignment(EnhancedLabel.CENTER);
