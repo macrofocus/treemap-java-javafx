@@ -49,7 +49,7 @@ public class Demo extends Application {
         settings.setColorColumn("Profits");
 //        TreeMapField<String> profits = model.getTreeMapField("Profits");
         TreeMapColumnSettings profitsSettings = settings.getColumnSettings("Profits");
-        final FixedPalette negpos = new PaletteFactory().get("negpos").getPalette();
+        final FixedPalette negpos = PaletteFactory.Companion.getInstance().get("negpos").getPalette();
         final MutableColorMap colorMap = model.getColorMap("Profits");
         colorMap.setPalette(negpos);
         colorMap.getInterval().setValue(-88.205, 176.41);
