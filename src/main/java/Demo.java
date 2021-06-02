@@ -29,7 +29,7 @@ import java.util.Arrays;
 public class Demo extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        String json = new String(Demo.class.getResourceAsStream("Forbes Global 2000 - 2020.json").readAllBytes(), "UTF-8");
+        String json = new String(Demo.class.getResourceAsStream("Forbes Global 2000 - 2021.json").readAllBytes(), "UTF-8");
         DataFrame<Integer,String,Object> dataFrame = new JsonDataFrame(json);
         AbstractTreeMap<Integer,String> treeMap = new DefaultTreeMap<>(dataFrame);
 
