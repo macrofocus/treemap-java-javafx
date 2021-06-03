@@ -52,7 +52,7 @@ public class Demo extends Application {
         final FixedPalette negpos = PaletteFactory.Companion.getInstance().get("negpos").getPalette();
         final MutableColorMap colorMap = model.getColorMap("Profits");
         colorMap.setPalette(negpos);
-        colorMap.getInterval().setValue(-88.205, 176.41);
+        colorMap.getInterval().setValue(-63.93, 127.86);
 
         // Label
         TreeMapColumnSettings companySettings = settings.getColumnSettings("Company");
