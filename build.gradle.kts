@@ -12,7 +12,8 @@ repositories {
     maven { url = uri("https://www.macrofocus.com/archiva/repository/snapshots/") }
     mavenCentral()
 
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev/")
+    // Jetpack Compose
+    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev/") }
 
     google()
 }
@@ -30,14 +31,19 @@ configurations.all {
     }
 }
 dependencies {
-    val kotlinVersion: String by project
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-
-    val macrofocusVersion: String by project
-    implementation("org.macrofocus:macrofocus-common:$macrofocusVersion")
-    implementation("org.molap:molap:$macrofocusVersion")
-    implementation("org.macrofocus:mkui:$macrofocusVersion")
-    implementation("com.treemap:treemap:$macrofocusVersion")
+    val localDependencies: String? by project
+    if(localDependencies != null && localDependencies.toBoolean()) {
+        implementation(project(":macrofocus-common"))
+        implementation(project(":molap"))
+        implementation(project(":mkui"))
+        implementation(project(":treemap"))
+    } else {
+        val macrofocusVersion: String by project
+        implementation("org.macrofocus:macrofocus-common:$macrofocusVersion")
+        implementation("org.molap:molap:$macrofocusVersion")
+        implementation("org.macrofocus:mkui:$macrofocusVersion")
+        implementation("com.treemap:treemap:$macrofocusVersion")
+    }
 }
 
 application {
