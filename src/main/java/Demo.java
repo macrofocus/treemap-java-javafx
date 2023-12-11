@@ -57,6 +57,8 @@ public class Demo extends Application {
         colorMap.setPalette(negpos);
         colorMap.getInterval().setValue(-63.93, 127.86);
 
+        treeMap.getView().setShowTiming(true);
+
         // Label
         TreeMapColumnSettings companySettings = settings.getColumnSettings("Company");
         companySettings.setLabelingFont(new CPFont(new Font("Helvetica", 9.0), FontWeight.NORMAL, FontPosture.REGULAR).getNativeFont()); // 9 points is the minimum size that will be displayed
