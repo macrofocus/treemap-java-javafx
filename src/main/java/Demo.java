@@ -109,22 +109,22 @@ public class Demo extends Application {
     @NotNull
     private static Node createGroupBy(Orientation orientation, TreeMapModel<AbstractTreeMapNode<Integer, String>, Integer, String> model, TreeMapSettings<String> settings) {
         if(orientation == Orientation.Vertical) {
-            return new VerticalHierarchicalComboBox<String>(settings.getGroupByFieldsSelection(), model.getGroupByTreeMapColumns());
+            return new VerticalHierarchicalComboBox<String>(settings.getGroupByColumnsSelection(), model.getGroupByColumns());
         } else {
-            return new HorizontalHierarchicalComboBox<String>(settings.getGroupByFieldsSelection(), model.getGroupByTreeMapColumns());
+            return new HorizontalHierarchicalComboBox<String>(settings.getGroupByColumnsSelection(), model.getGroupByColumns());
         }
     }
 
     private static Node createSizeComboBox(TreeMapModel<AbstractTreeMapNode<Integer, String>, Integer, String> model, TreeMapSettings<String> settings) {
-        final SingleSelectionSingleSelectionModel<String> selectionModel = new SingleSelectionSingleSelectionModel<>(settings.getSizeFieldSelection(), model.getSizeTreeMapColumns());
+        final SingleSelectionSingleSelectionModel<String> selectionModel = new SingleSelectionSingleSelectionModel<>(settings.getSizeColumnSelection(), model.getSizeColumns());
         final ComboBox<String> comboBox = new ComboBox<String>(selectionModel.getList());
-        comboBox.getSelectionModel().select(settings.getSizeFieldSelection().getSelected());
+        comboBox.getSelectionModel().select(settings.getSizeColumnSelection().getSelected());
         comboBox.setSelectionModel(selectionModel);
         return comboBox;
     }
 
     private static Node createColorComboBox(TreeMapModel<AbstractTreeMapNode<Integer, String>, Integer, String> model, TreeMapSettings<String> settings) {
-        final SingleSelectionSingleSelectionModel<String> selectionModel = new SingleSelectionSingleSelectionModel<>(settings.getColorColumnSelection(), model.getColorTreeMapColumns());
+        final SingleSelectionSingleSelectionModel<String> selectionModel = new SingleSelectionSingleSelectionModel<>(settings.getColorColumnSelection(), model.getColorColumns());
         final ComboBox<String> comboBox = new ComboBox<String>(selectionModel.getList());
         comboBox.getSelectionModel().select(settings.getColorColumnSelection().getSelected());
         comboBox.setSelectionModel(selectionModel);
