@@ -4,7 +4,7 @@ plugins {
 }
 
 tasks.compileJava {
-    options.release.set(11)
+    options.release.set(21)
 }
 
 repositories {
@@ -24,12 +24,12 @@ javafx {
     modules("javafx.graphics", "javafx.controls")
 }
 
-val frameworkAttribute = Attribute.of("mkui", String::class.java)
-configurations.all {
-    afterEvaluate {
-        attributes.attribute(frameworkAttribute, "javafx")
-    }
-}
+//val frameworkAttribute = Attribute.of("mkui", String::class.java)
+//configurations.all {
+//    afterEvaluate {
+//        attributes.attribute(frameworkAttribute, "javafx")
+//    }
+//}
 dependencies {
     val localDependencies: String? by project
     if(localDependencies != null && localDependencies.toBoolean()) {
@@ -41,8 +41,8 @@ dependencies {
         val macrofocusVersion: String by project
         implementation("org.macrofocus:macrofocus-common:$macrofocusVersion")
         implementation("org.molap:molap:$macrofocusVersion")
-        implementation("org.mkui:mkui:$macrofocusVersion")
-        implementation("com.treemap:treemap:$macrofocusVersion")
+        implementation("org.mkui:mkui-javafx:$macrofocusVersion")
+        implementation("com.treemap:treemap-javafx:$macrofocusVersion")
     }
 }
 
