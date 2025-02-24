@@ -62,9 +62,9 @@ distributions {
 
 //            from("TreeMap API for Java-JavaFX Developer Guide.pdf")
 
-            from("../treemap/build/dokka/html/") {
-                into("dokka")
-            }
+//            from("dokka") {
+//                into("dokka")
+//            }
         }
     }
 }
