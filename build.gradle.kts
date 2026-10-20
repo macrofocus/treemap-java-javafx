@@ -19,7 +19,7 @@ repositories {
 }
 
 javafx {
-    val javaFxVersion: String by project
+    val javaFxVersion = project.property("javaFxVersion") as String
     version = javaFxVersion
     modules("javafx.graphics", "javafx.controls")
 }
@@ -31,14 +31,14 @@ javafx {
 //    }
 //}
 dependencies {
-    val localDependencies: String? by project
+    val localDependencies = project.findProperty("localDependencies") as String?
     if(localDependencies != null && localDependencies.toBoolean()) {
         implementation(project(":macrofocus-common"))
         implementation(project(":molap"))
         implementation(project(":mkui"))
         implementation(project(":treemap"))
     } else {
-        val macrofocusVersion: String by project
+        val macrofocusVersion = project.property("macrofocusVersion") as String
         implementation("org.macrofocus:macrofocus-common:$macrofocusVersion")
         implementation("org.molap:molap:$macrofocusVersion")
         implementation("org.mkui:mkui-javafx:$macrofocusVersion")
