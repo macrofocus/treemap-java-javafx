@@ -8,8 +8,7 @@ tasks.compileJava {
 }
 
 repositories {
-    maven { url = uri("https://archiva.macrofocus.com/repository/public/") }
-    maven { url = uri("https://archiva.macrofocus.com/repository/snapshots/") }
+    maven { url = uri("https://maven.macrofocus.com/releases") }
     mavenCentral()
 
     // Jetpack Compose
