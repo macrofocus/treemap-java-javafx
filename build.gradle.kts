@@ -23,12 +23,11 @@ javafx {
     modules("javafx.graphics", "javafx.controls")
 }
 
-//val frameworkAttribute = Attribute.of("mkui", String::class.java)
-//configurations.all {
-//    afterEvaluate {
-//        attributes.attribute(frameworkAttribute, "javafx")
-//    }
-//}
+// Picks the javafx variants of the multiplatform modules (see "Multiple Targets Plan.md")
+val frameworkAttribute = Attribute.of("mkui", String::class.java)
+configurations.all {
+    attributes.attribute(frameworkAttribute, "javafx")
+}
 dependencies {
     val localDependencies = project.findProperty("localDependencies") as String?
     if(localDependencies != null && localDependencies.toBoolean()) {
