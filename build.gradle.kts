@@ -12,7 +12,7 @@ repositories {
     mavenCentral()
 
     // Jetpack Compose
-    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev/") }
+    maven { url = uri("https://packages.jetbrains.team/maven/p/cmp/dev") }
 
     google()
 }
